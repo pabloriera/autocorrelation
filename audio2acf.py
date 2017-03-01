@@ -100,12 +100,12 @@ if __name__ == "__main__":
     wavwrite(fileout,y,fs)
 
     print("Converting to Mp3")
-    task = ["avconv", "-i","%s" % fileout, "-b", "320k", filemp3]
+    task = ["ffmpeg", "-i","%s" % fileout, "-b", "320k", filemp3]
     subprocess.call(task)
     
     print("Cleaning up")
-    task = ["rm",filewav]
-    subprocess.call(task)
+    # task = ["rm",filewav]
+    # subprocess.call(task)
 
     task = ["rm",fileout]
     subprocess.call(task)
